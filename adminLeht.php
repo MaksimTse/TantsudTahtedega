@@ -37,6 +37,15 @@ if (isset($_REQUEST["naitmine"]) && $isAdminView) {
     $yhendus->close();
 }
 
+if (isset($_REQUEST["kustuta_kommentaar_id"]) && $isAdminView) {
+    global $yhendus;
+    $kask = $yhendus->prepare("UPDATE tantsud SET kommentaarid='' WHERE id=?");
+    $kask->bind_param("i", $_REQUEST["kustuta_kommentaar_id"]);
+    $kask->execute();
+    header("Location: $_SERVER[PHP_SELF]");
+    $yhendus->close();
+}
+
 if (isset($_REQUEST["kustuta"])) {
     $paring = $yhendus->prepare("DELETE FROM tantsud WHERE id=?");
     $paring->bind_param("i", $_REQUEST["kustuta"]);
@@ -89,21 +98,11 @@ function isAdmin()
 
 <table>
     <tr>
-        <th>
-            Tantsupaari nimi
-        </th>
-        <th>
-            Punktid
-        </th>
-        <th>
-            Kuupäev
-        </th>
-        <th>
-            Kommentaarid
-        </th>
-        <th>
-            Avalik
-        </th>
+        <th>Tantsupaari nimi</th>
+        <th>Punktid</th>
+        <th>Kuupäev</th>
+        <th>Kommentaarid</th>
+        <th>Avalik</th>
     </tr>
     <?php
     global $yhendus;
@@ -127,16 +126,17 @@ function isAdmin()
         echo "<td>" . $punktid . "</td>";
         echo "<td>" . $paev . "</td>";
         echo "<td>" . $komment . "</td>";
+        echo "<td>" . $avalik . "/" . $tekst2 . "</td>";
 
-            echo "<td>" . $avalik . "/" . $tekst2 . "</td>";
         if ($isAdminView && $viewAsUser) {
             echo "<td><a href='?$seisund=$id'>$tekst</a></td>";
             echo "<td><a href='?punktid0=$id' id='kustuta'>Punktid Nulliks!</a></td>";
+            echo "<td><a href='?kustuta_kommentaar_id=$id'>Kustuta kommentaar</a></td>";
             echo "<td><a href='?kustuta=$id' id='kustuta'>Kustuta</a></td>";
         }
 
         echo "</tr>";
-        }
+    }
     ?>
 </table>
 </body>

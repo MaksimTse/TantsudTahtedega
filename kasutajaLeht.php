@@ -2,6 +2,16 @@
 require_once('conf.php');
 session_start();
 
+if (isset($_REQUEST["komment"]) && isset($_REQUEST["uuskomment"]) && !empty($_REQUEST["uuskomment"]) && isAdmin()) {
+    global $yhendus;
+    $kask = $yhendus->prepare("UPDATE tantsud SET kommentaarid=CONCAT(kommentaarid, ?) WHERE id=?");
+    $kommentplus = "\n" . $_REQUEST["uuskomment"] . "\n"; // Add a new line before and after the new comment
+    $kask->bind_param("si", $kommentplus, $_REQUEST["komment"]);
+    $kask->execute();
+    header("Location: $_SERVER[PHP_SELF]");
+    $yhendus->close();
+}
+
 if(isset($_REQUEST["paarinimi"]) && !empty($_REQUEST["paarinimi"]) && isAdmin()){
     global $yhendus;
     $kask=$yhendus->prepare("INSERT INTO tantsud (tantsupaar, punktid, ava_paev) VALUES(?, 50, NOW())");
@@ -96,15 +106,18 @@ global $yhendus;
         echo "<td>".$tantsupaar."</td>";
         echo "<td>".$punktid."</td>";
         echo "<td>".$paev."</td>";
-        echo "<td>".$komment."</td>";
-        echo "
-        <form action='?'>
-        <input type='hidden' value='$id' name='komment'>
-        <input type='text' name='uuskomment' id='uuskomment'>
-        <input type='submit' value='OK'>
-        </form>
-        ";
+        echo "<td>".nl2br(htmlspecialchars($komment))."</td>";
         if(isAdmin()){
+                    echo "
+                    <td>
+                <form action='?'>
+                <input type='hidden' value='$id' name='komment'>
+                <input type='text' name='uuskomment' id='uuskomment'>
+                <input type='submit' value='OK'>
+                </form>
+                
+                </td>
+                ";
                 echo "<td><a href='?heatants=$id'>Lisa +1 punkt</a></td>";
                 echo "<td><a href='?halbtants=$id'>Lisa -1 punkt</a></td>";
         }

@@ -186,11 +186,11 @@ input[type=radio]:checked {
     background-color: #333;
 }
 
-/* Стиль для кнопки отправить
+/* Стиль для кнопки отправить */
 input[type=submit] {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
+    display: line;
+    margin: 10px auto;
+    padding: 10px 10px;
     background-color: #333;
     color: #fff;
     border: none;
@@ -198,7 +198,6 @@ input[type=submit] {
     cursor: pointer;
     font-size: 18px;
 }
-*/
 input[type=reset] {
     display: block;
     margin: 20px auto;
@@ -218,6 +217,7 @@ input[type=submit]:hover {
 
 
 /* Стиль для текстовых полей и селектов */
+input[type=text],
 input[type=password],
 input[type=date],
 textarea {

@@ -1,0 +1,368 @@
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+
+td[id^="vastus"] {
+    padding: 10px;
+    text-align: left;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-left: 20px;
+}
+
+/* Добавляем отступы для отдельных ответов */
+td[id^="vastus"] {
+    margin-top: 10px;
+}
+
+/* Разделители между ответами и полями формы */
+.separator {
+    height: 100%;
+    margin: 0 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+@keyframes shadows {
+    0% { box-shadow: #03fcf4 0 0 40px; }
+    50% { box-shadow: #03fca1 0 0 40px; }
+    75% { box-shadow: #03fca1 0 0 40px;}
+    100% { box-shadow: #03fca1 0 0 40px; }
+}
+
+form {
+    max-width: 60%;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    animation: shadows 3s infinite
+}
+
+/* Заголовок */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #b3b3b3;
+}
+
+/* Стили для заголовка */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1 {
+    font-family: 'Algerian', sans-serif;
+    font-size: 36px;
+    letter-spacing: 2px;
+    border-bottom: 3px solid aquamarine;
+    margin: 0;
+    text-align: center;
+}
+#Hkalk{
+    margin-top: 1%;
+}
+#div2{
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    text-align: center;
+
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+nav a, #log{
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    padding: 10px 15px;
+}
+
+nav a:hover, #log:hover,
+nav a.current {
+    background-color: darkorchid;
+    box-shadow: 0 0 40px 0px #9400D3;
+    text-shadow: 0 0 35px #9400D3;
+}
+
+table {
+    width: 110%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+td {
+    padding: 10px;
+    margin-left: 0;
+    text-align: left;
+}
+
+#lingid ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+@keyframes shadows {
+    0% { box-shadow: #03fcf4 0 0 10px; }
+    50% { box-shadow: #03fca1 0 0 10px; }
+    75% { box-shadow: #03fca1 0 0 10px;}
+    100% { box-shadow: #03fca1 0 0 10px; }
+}
+p {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    margin-left: 40px;
+    text-align: left;
+}
+
+/* Стиль для текстовых полей и селектов */
+input[type=text],
+input[type=number],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Стиль для checkbox */
+input[type=checkbox] {
+    /* Говорим сайту чтобы не ставил собственный стиль по дефолту*/
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 30px;
+    height: 30px;
+    background-color: #eee;
+    border: 2px solid #333;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+input[type=checkbox]:checked {
+    background-color: #333;
+}
+
+/* Стиль для radio button */
+input[type=radio] {
+    /* Говорим сайту чтобы не ставил собственный стиль по дефолту*/
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 30px;
+    height: 30px;
+    background-color: #eee;
+    border: 2px solid #333;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+input[type=radio]:checked {
+    background-color: #333;
+}
+
+/* Стиль для кнопки отправить */
+input[type=submit] {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+input[type=reset] {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+input[type=submit]:hover {
+    background-color: aquamarine;
+    color: #333;
+}
+
+
+/* Стиль для текстовых полей и селектов */
+input[type=text],
+input[type=password],
+input[type=date],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    margin-right: 10px auto;
+}
+a{
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover{
+    color: aquamarine;
+}
+
+
+/* Стиль для кнопки отправить и сбросить */
+button[type=submit], button,
+#Tyhista,
+button[type=reset] {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button[type=submit]:hover, button:hover,
+button[type=reset]:hover {
+    background-color: aquamarine;
+    color: #333;
+}
+
+/* Добавим стиль для формы */
+form {
+    max-width: 60%;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    animation: shadows 3s infinite;
+}
+
+/* Стиль для кнопки "Кустута" */
+#Nim {
+    color: red;
+    text-decoration: none;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+#Nim:hover {
+    text-decoration: underline;
+}
+
+/* Отступы между элементами формы */
+.form-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+/* Стиль для таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Добавим отступы для отдельных ответов */
+td[id^="vastus"] {
+    margin-top: 10px;
+}
+#kustuta{
+    color: red;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.button {
+    margin: 10px;
+    padding: 20px;
+    background-color: #57776c;
+    border: 1px solid #009662;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #2c7159;
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #b3b3b3;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #b3b3b3;
+    width: 30%;
+}
+
+.close {
+    color: #f7f7f7;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}

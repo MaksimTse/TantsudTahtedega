@@ -80,20 +80,15 @@ function isAdmin(){
 
 <table>
     <tr>
-        <th>
-            Tantsupaari nimi
-        </th>
-        <th>
-            Punktid
-        </th>
-        <th>
-            Kuupäev
-        </th>
+        <th>Tantsupaari nimi</th>
+        <th>Punktid</th>
+        <th>Kuupäev</th>
+        <th>Kommentaarid</th>
     </tr>
 <?php
 global $yhendus;
-    $kask=$yhendus->prepare("SELECT id, tantsupaar, punktid, ava_paev FROM tantsud WHERE avalik=1");
-    $kask->bind_result($id, $tantsupaar, $punktid, $paev);
+    $kask=$yhendus->prepare("SELECT id, tantsupaar, punktid, ava_paev, kommentaarid FROM tantsud WHERE avalik=1");
+    $kask->bind_result($id, $tantsupaar, $punktid, $paev, $komment);
     $kask->execute();
     while($kask->fetch()){
         echo "<tr>";
@@ -101,6 +96,14 @@ global $yhendus;
         echo "<td>".$tantsupaar."</td>";
         echo "<td>".$punktid."</td>";
         echo "<td>".$paev."</td>";
+        echo "<td>".$komment."</td>";
+        echo "
+        <form action='?'>
+        <input type='hidden' value='$id' name='komment'>
+        <input type='text' name='uuskomment' id='uuskomment'>
+        <input type='submit' value='OK'>
+        </form>
+        ";
         if(isAdmin()){
                 echo "<td><a href='?heatants=$id'>Lisa +1 punkt</a></td>";
                 echo "<td><a href='?halbtants=$id'>Lisa -1 punkt</a></td>";
